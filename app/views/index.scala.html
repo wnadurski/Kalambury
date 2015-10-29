@@ -1,7 +1,12 @@
-@(message: String)
+@(message: String, users: Seq[User])
 
 @main("Welcome to Play") {
 
     NO SIEMA
+    <ul>
+        @users.map { user =>
+            <li>@user.login @user.password</li>
+        }
+    </ul>
 
 }
