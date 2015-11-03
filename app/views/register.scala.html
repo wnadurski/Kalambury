@@ -1,4 +1,4 @@
-@()
+@(userForm: Form[UserData])(implicit messages: Messages)
 
 @main("Kalambury - register") {
     <div class="row">
@@ -8,6 +8,10 @@
         <h2 class="text-center h2">REJESTRACJA</h2>
     </div>
     <div class="row">
+        @helper.form(action = routes.UserController.registerPost) {
+            @helper.inputText(userForm("name"))
+            @helper.inputText(userForm("age"))
+        }
         <form>
             <div class="large-3 medium-3 columns">
                 <input type="text" name="lnick" placeholder="NICK">

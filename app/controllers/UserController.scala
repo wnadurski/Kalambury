@@ -4,7 +4,8 @@ import models._
 import play.api.data._
 import play.api.data.Forms._
 import play.api.mvc._
-
+import play.api.Play.current
+import play.api.i18n.Messages.Implicits._
 /**
  * Created by Hyster on 2015-11-02.
  */
@@ -34,20 +35,20 @@ class UserController extends Controller {
       case userData => validate(userData)
     })
   )
-/*
-  def register() = Action {
+
+  def register = Action {
     Ok(views.html.register(registerForm))
   }
 
   def registerPost() = Action{ implicit request =>
     registerForm.bindFromRequest.fold(
       formWithErrors => {
-        BadRequest(views.html.index)//views.html.register(formWithErrors))
+        BadRequest(views.html.register(formWithErrors))
       },
       userData => {
         User.create(userData)
         Redirect("/").withSession("username" -> userData.login)
       }
     )
-  }*/
+  }
 }
