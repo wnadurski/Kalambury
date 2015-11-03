@@ -1,14 +1,3 @@
-.title {
-	font-weight: 800;
-	font-size: 700%;
-}
-
-.h2 {
-	font-weight: 700;
-	font-size: 300%;
-	background-color: #3AC5FF;
-}
-
 meta.foundation-version {
   font-family: "/5.5.3/"; }
 
@@ -69,7 +58,7 @@ body {
   background: #fff;
   color: #222;
   cursor: auto;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Montserrat", Helvetica, Roboto, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1.5;
@@ -1162,7 +1151,7 @@ button, .button {
   border-style: solid;
   border-width: 0;
   cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -1172,14 +1161,15 @@ button, .button {
   display: inline-block;
   padding: 1rem 2rem 1.0625rem 2rem;
   font-size: 1rem;
-  background-color: #008CBA;
+  background-color: #3AC5FF;
   border-color: #007095;
-  color: #FFFFFF;
-  transition: background-color 300ms ease-out; }
+  color: #222222;
+  font-weight: bold;
+  transition: background-color 200ms ease-out; }
   button:hover, button:focus, .button:hover, .button:focus {
-    background-color: #007095; }
+    background-color: #2989B3; }
   button:hover, button:focus, .button:hover, .button:focus {
-    color: #FFFFFF; }
+    color: #222222; }
   button.secondary, .button.secondary {
     background-color: #e7e7e7;
     border-color: #b9b9b9;
@@ -1224,7 +1214,11 @@ button, .button {
     padding: 1.125rem 2.25rem 1.1875rem 2.25rem;
     font-size: 1.25rem; }
   button.small, .button.small {
-    padding: 0.875rem 1.75rem 0.9375rem 1.75rem;
+    padding: 0.7rem 1.75rem 0.6rem 1.75rem;
+	border-left: 0 solid;
+	border-right: 0 solid;
+	border-bottom: 3px solid #222222;
+	border-top: 0 solid;
     font-size: 0.8125rem; }
   button.tiny, .button.tiny {
     padding: 0.625rem 1.25rem 0.6875rem 1.25rem;
@@ -2376,7 +2370,7 @@ meta.foundation-mq-topbar {
     width: 50%; }
     .button-group.even-2 li > button, .button-group.even-2 li .button {
       border-left: 1px solid;
-      border-color: rgba(255, 255, 255, 0.5); }
+      border-color: rgba(255, 255, 255, 1); }
     .button-group.even-2 li:first-child button, .button-group.even-2 li:first-child .button {
       border-left: 0; }
     .button-group.even-2 li button, .button-group.even-2 li .button {
@@ -2387,7 +2381,7 @@ meta.foundation-mq-topbar {
     width: 33.33333%; }
     .button-group.even-3 li > button, .button-group.even-3 li .button {
       border-left: 1px solid;
-      border-color: rgba(255, 255, 255, 0.5); }
+      border-color: rgba(255, 255, 255, 1); }
     .button-group.even-3 li:first-child button, .button-group.even-3 li:first-child .button {
       border-left: 0; }
     .button-group.even-3 li button, .button-group.even-3 li .button {
@@ -2398,7 +2392,7 @@ meta.foundation-mq-topbar {
     width: 25%; }
     .button-group.even-4 li > button, .button-group.even-4 li .button {
       border-left: 1px solid;
-      border-color: rgba(255, 255, 255, 0.5); }
+      border-color: rgba(255, 255, 255, 1); }
     .button-group.even-4 li:first-child button, .button-group.even-4 li:first-child .button {
       border-left: 0; }
     .button-group.even-4 li button, .button-group.even-4 li .button {
@@ -2409,7 +2403,7 @@ meta.foundation-mq-topbar {
     width: 20%; }
     .button-group.even-5 li > button, .button-group.even-5 li .button {
       border-left: 1px solid;
-      border-color: rgba(255, 255, 255, 0.5); }
+      border-color: rgba(255, 255, 255, 1); }
     .button-group.even-5 li:first-child button, .button-group.even-5 li:first-child .button {
       border-left: 0; }
     .button-group.even-5 li button, .button-group.even-5 li .button {
@@ -2420,7 +2414,7 @@ meta.foundation-mq-topbar {
     width: 16.66667%; }
     .button-group.even-6 li > button, .button-group.even-6 li .button {
       border-left: 1px solid;
-      border-color: rgba(255, 255, 255, 0.5); }
+      border-color: rgba(255, 255, 255, 1); }
     .button-group.even-6 li:first-child button, .button-group.even-6 li:first-child .button {
       border-left: 0; }
     .button-group.even-6 li button, .button-group.even-6 li .button {
@@ -2431,7 +2425,7 @@ meta.foundation-mq-topbar {
     width: 14.28571%; }
     .button-group.even-7 li > button, .button-group.even-7 li .button {
       border-left: 1px solid;
-      border-color: rgba(255, 255, 255, 0.5); }
+      border-color: rgba(255, 255, 255, 1); }
     .button-group.even-7 li:first-child button, .button-group.even-7 li:first-child .button {
       border-left: 0; }
     .button-group.even-7 li button, .button-group.even-7 li .button {
@@ -2442,7 +2436,7 @@ meta.foundation-mq-topbar {
     width: 12.5%; }
     .button-group.even-8 li > button, .button-group.even-8 li .button {
       border-left: 1px solid;
-      border-color: rgba(255, 255, 255, 0.5); }
+      border-color: rgba(255, 255, 255, 1); }
     .button-group.even-8 li:first-child button, .button-group.even-8 li:first-child .button {
       border-left: 0; }
     .button-group.even-8 li button, .button-group.even-8 li .button {
@@ -2452,7 +2446,7 @@ meta.foundation-mq-topbar {
     margin: 0 -2px; }
     .button-group > li > button, .button-group > li .button {
       border-left: 1px solid;
-      border-color: rgba(255, 255, 255, 0.5); }
+      border-color: rgba(255, 255, 255, 1); }
     .button-group > li:first-child button, .button-group > li:first-child .button {
       border-left: 0; }
   .button-group.stack > li {
@@ -5690,10 +5684,14 @@ table {
       font-size: 0.875rem;
       font-weight: bold;
       padding: 0.5rem 0.625rem 0.625rem; }
-  table tr th,
   table tr td {
     color: #222222;
     font-size: 0.875rem;
+    padding: 0.5625rem 0.625rem;
+    text-align: left; }
+  table tr th {
+    color: #222222;
+    font-size: 1rem;
     padding: 0.5625rem 0.625rem;
     text-align: left; }
   table tr.even, table tr.alt, table tr:nth-of-type(even) {

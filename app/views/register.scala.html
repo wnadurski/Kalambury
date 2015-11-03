@@ -5,13 +5,11 @@
         <h1 class="title text-center">KALAMBURY</h1>
     </div>
     <div class="row">
-        <h2 class="text-center h2">REJESTRACJA</h2>
+        <div class="large-5 large-centered columns">
+            <h2 class="text-center h2">REJESTRACJA</h2>
+        </div>
     </div>
     <div class="row">
-        @helper.form(action = routes.UserController.registerPost) {
-            @helper.inputText(userForm("name"))
-            @helper.inputText(userForm("age"))
-        }
         <form>
             <div class="large-3 medium-3 columns">
                 <input type="text" name="lnick" placeholder="NICK">
