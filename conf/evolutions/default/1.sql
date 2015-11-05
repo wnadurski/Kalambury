@@ -10,7 +10,7 @@ INSERT INTO Roles(name) VALUES ('simple'),('admin');
 
 CREATE TABLE Users (
     id int NOT NULL AUTO_INCREMENT,
-    login varchar(255) NOT NULL,
+    login varchar(255) NOT NULL UNIQUE,
     password varchar(255) NOT NULL,
     ranking int NOT NULL,
     totalPoints int NOT NULL,

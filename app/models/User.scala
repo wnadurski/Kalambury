@@ -16,11 +16,11 @@ case class User(id: Int, login: String, password: String, ranking: Int, totalPoi
 
 object User {
   val parser = {
-    int("users.id") ~
-    str("users.login") ~
-    str("users.password") ~
-    int("users.ranking") ~
-    int("users.totalPoints") ~
+    int("Users.id") ~
+    str("Users.login") ~
+    str("Users.password") ~
+    int("Users.ranking") ~
+    int("Users.totalPoints") ~
     Role.parser map {
       case id ~ login ~ password~ranking~tp~role => User(id,login, password, ranking, tp, role)
     }
@@ -50,15 +50,28 @@ object User {
     }
   }
 
+  def findById(id: Int) : Option[User] = {
+    DB.withConnection { implicit connection =>
+      SQL(selectWhere("users.id = {id}")).on('id -> id).as(parser.singleOpt)
+    }
+  }
+
   def create(data:UserData) = {
     DB.withConnection { implicit connection =>
-      SQL("insert into Users(login, password, ranking, totalPoints, roleId) values ({login}, {password}, {ranking}, {totalPoints}, {roleId})").on(
-        "login" -> data.login,
-        "password" -> md5(data.password.getBytes),
-        "ranking" -> 0,
-        "totalPoints" -> 0,
-        "roleId"-> Role.findByName("simple").id
-      ).execute()
+      SQL(selectWhere("login = {name}")).on( "name" ->data.login).as(parser.singleOpt) match {
+        case Some(user) => println("User: " + user)
+          None
+        case None => println("DUPA LYSA")
+          val id = SQL("insert into Users(login, password, ranking, totalPoints, roleId) values ({login}, {password}, {ranking}, {totalPoints}, {roleId})").on(
+            "login" -> data.login,
+            "password" -> md5(data.password.getBytes),
+            "ranking" -> 0,
+            "totalPoints" -> 0,
+            "roleId" -> Role.findByName("simple").id
+          ).executeInsert(SqlParser.int("SCOPE_IDENTITY()").single)
+
+          User.findById(id)
+      }
     }
   }
 }

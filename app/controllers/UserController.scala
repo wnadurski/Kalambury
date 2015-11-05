@@ -47,9 +47,10 @@ class UserController extends Controller with Authentication {
       },
       userData => {
         println(s"login: ${userData.login} pass: ${userData.password}")
-        User.create(userData)
-
-        Redirect("/").withSession("username" -> userData.login)
+        User.create(userData) match {
+          case None => Redirect(routes.UserController.register)
+          case Some(user) =>Redirect("/").withSession("username" -> userData.login)
+        }
       }
     )
   }

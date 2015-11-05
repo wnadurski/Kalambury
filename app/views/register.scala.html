@@ -15,7 +15,7 @@
                 <input type="text" name="@name" id="@id" @toHtmlArgs(args) placeholder="Login">
             }
             @helper.input(userForm("password")) { (id, name, value, args) =>
-                <input type="password" name="@name" id="@id" @toHtmlArgs(args)>
+                <input type="password" name="@name" id="@id" @toHtmlArgs(args) placeholder="Has&#322;o">
             }
 
             <input type="submit" class="small button" value="Register"/>
