@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/kalambury -Dhttp.port=${PORT} -Dplay.crypto.secret="QCY?tAnfk?aZ?iwrNwnxIlR6CTf:G3gf:90Latabg@5241AB`R5W:1uDFN];Ik@n"
+web: target/universal/stage/bin/kalambury -Dhttp.port=${PORT} -Dplay.crypto.secret="QCY?tAnfk?aZ?iwrNwnxIlR6CTfsG3gfa90Latabg@5241ABeR5W:1uDFN]dIk@n"
