@@ -1,43 +1,97 @@
 @()
+
 @main("Kalambury - game") {
     <div class="row">
-        <div class="large-8 medium-8 columns">
-            JESTEŒ ZALOGOWANY JAKO gracz1
+        <div class="large-10 text-right medium-10 columns">
+            <div class="loginmsg">JESTE&Sacute; ZALOGOWANY JAKO <span id="player" class="text-left">gracz1</span></div>
         </div>
-        <div class="large-4 medium-4 columns">
+        <div class="large-2 medium-2 columns">
             <a class="small button">WYLOGUJ</a>
         </div>
     </div>
     <div class="row">
-        <h1>KALAMBURY</h1>
-    </div>
-    <div class="row">
-        <h2>STÓ£ #1 | <span class="roomTime">2MIN</span> | <span class="roomPoints">1000 PKT</span></h2>
-    </div>
-    <div class="row">
-        <div class="large-8 medium-8 columns">
-            <div class="row">
-                <div class="large-6 medium-6 columns">
-                    Has³o | <span class="sentence">java</span>
-                </div>
-                <div class="large-6 medium-6 columns">
-                    Pozosta³y czas | <span class="remainingTime">37s</span>
-                </div>
-            </div>
-            <div class="row">
-                <canvas></canvas>
-            </div>
-        </div>
-        <div class="large-4 medium-4 columns">
-            <div class="row">
-                <div class="czat"></div>
-            </div>
-            <div class="row">
-                <div class="punktacja"></div>
-            </div>
+        <div class="large-centered medium-centered columns">
+            <h1 class="text-center title">KALAMBURY</h1>
         </div>
     </div>
     <div class="row">
-        <a href="index2.html" class="small button">OPUŒÆ STÓ£</a>
+        <div class="large-8 large-centered medium-centered columns">
+            <h2 class="text-center h2">ST&Oacute;&Lstrok; #1 | <span class="roomTime">2MIN</span> | <span class="roomPoints">1000 PKT</span></h2>
+        </div>
+    </div>
+    <div class="row" data-equalizer>
+        <div class="large-8 medium-8 columns" data-equalizer-watch>
+            <div class="row">
+                <div class="large-6 medium-6 columns">
+                    Has&lstrok;o | <span id="sentence">java</span>
+                </div>
+                <div class="large-6 medium-6 text-right columns">
+                    Pozosta&lstrok;y czas | <span id="remainingTime">37s</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 medium-12 columns">
+                    <canvas id="canvas" width="650" height="500"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="large-4 medium-4 columns" data-equalizer-watch>
+            <div class="row">
+                <div class="large-centered columns">
+                    <div id="chatbox">
+                        <div class="moduletitle">Czat</div>
+                        <div id="chat" class="scrollbar">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-centered columns">
+                    <form name="message" action="">
+                        <ul class="button-group">
+                            <li>
+                                <input name="usrmsg" id="usrmsg" type="text" placeholder="Tutaj wpisz odpowied&zacute;..." />
+                            </li>
+                            <li>
+                                <input name="submitmsg" type="submit" id="submitmsg" class="small button" value="WY&Sacute;LIJ" />
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 medium-12 columns">
+                    <div id="pointsContainer" class="scrollbar">
+                        <table id="points">
+                            <tr>
+                                <th class="moduletitle text-right">Gracz</th>
+                                <th class="moduletitle text-left" style="width: 40%">Punkty</th>
+                            </tr>
+                            <tr>
+                                <td class="text-right">gracz1</td>
+                                <td>120</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">agrest</td>
+                                <td>80</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">nobi</td>
+                                <td>70</td>
+                            </tr>
+                            <tr>
+                                <td class="text-right">kula24</td>
+                                <td>0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-centered text-center columns">
+            <a href="@routes.Application.index" class="small button">OPU&Sacute;&Cacute; GR&Eogon;</a>
+        </div>
     </div>
 }

@@ -1,0 +1,90 @@
+/*
+	#3AC5FF - button background color
+	#2989B3 - button hover background color
+	#222222 - font color
+	'Montserrat' - font-family
+	*/
+
+@font-face {
+	font-family: "Montserrat";
+	src: url('../../fonts/Montserrat-Regular.otf'); }
+
+.title {
+	font-weight: 800;
+	font-size: 700%;
+	font-family: 'Montserrat', sans-serif; }
+
+.h2 {
+	font-weight: 700;
+	font-size: 300%;
+	background-color: #3AC5FF;
+	font-family: 'Montserrat', sans-serif;
+	margin-bottom: 0.5em; }
+
+#player {
+	font-weight: bold;
+	background-color: #3AC5FF;
+	padding: 5px; }
+
+#sentence {
+	font-weight: bold; }
+
+#remainingTime {
+	font-weight: bold; }
+
+canvas {
+	border: 1px solid #999; }
+
+.loginmsg {
+	padding-top: 8px; }
+
+.moduletitle {
+	text-decoration: underline; }
+
+#chat {
+	height: 300px; }
+
+#points {
+	width: 290px; }
+#points tr th,
+#points tr td {
+	padding: 0;
+}
+
+#pointsContainer {
+	height: 144px; }
+
+.credentials {
+	margin-top: 2em;
+}
+
+.scrollbar {
+	overflow: auto; }
+
+.scrollbar::-webkit-scrollbar {
+	width: 10px;
+	background-color: #fff; }
+
+.scrollbar::-webkit-scrollbar-thumb {
+	background-color: #999;
+	border-radius: 5px; }
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+	backgroundd-color: #888; }
+
+.scrollbar::-webkit-scrollbar-thumb:active {
+	background-color: #777; }
+
+.scrollbar::-webkit-scrollbar-track {
+	background-color: #ddd;
+	border: 0;
+	border-radius: 5px; }
+
+.button {
+	background-color: #3AC5FF;
+	font-family: 'Montserrat', sans-serif;
+	color: #222; }
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	color: #222; }
