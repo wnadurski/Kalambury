@@ -61,7 +61,7 @@ object User {
       SQL(selectWhere("login = {name}")).on( "name" ->data.login).as(parser.singleOpt) match {
         case Some(user) => println("User: " + user)
           None
-        case None => println("DUPA LYSA")
+        case None =>
           val id = SQL("insert into Users(login, password, ranking, totalPoints, roleId) values ({login}, {password}, {ranking}, {totalPoints}, {roleId})").on(
             "login" -> data.login,
             "password" -> md5(data.password.getBytes),
