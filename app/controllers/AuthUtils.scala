@@ -16,7 +16,7 @@ object AuthUtils {
 
   def parseUserFromForm(implicit request: Request[AnyContent]) = {
     request.body.asFormUrlEncoded match {
-      case Some(body) => body
+      case Some(body) =>
         val mappedBody = body.map { case (key, value) => key-> value.mkString }
         val username = mappedBody.get("username")
         val password = mappedBody.get("password")
