@@ -36,8 +36,18 @@ class UserController extends Controller with Authentication {
     })
   )
 
-  def register = Action {
-    Ok(views.html.register(registerForm))
+  def register = Action { implicit request =>
+    request.session.get("username") match {
+      case Some(username) => Redirect("/")
+      case None =>
+        request.flash.get("message") match {
+          case Some(msg) =>
+            println("jest")
+            Ok(views.html.register(registerForm, Some(request.flash)))
+
+          case None => Ok(views.html.register(registerForm))
+        }
+    }
   }
 
   def registerPost() = Action{ implicit request =>
@@ -48,7 +58,7 @@ class UserController extends Controller with Authentication {
       userData => {
         println(s"login: ${userData.login} pass: ${userData.password}")
         User.create(userData) match {
-          case None => Redirect(routes.UserController.register).flashing("userExists" -> ("The user " + userData.login + "exists."))
+          case None => Redirect(routes.UserController.register()).flashing("message" -> ("U&#380;ytkownik " + userData.login + " istnieje."))
           case Some(user) =>Redirect("/").withSession("username" -> userData.login)
         }
       }

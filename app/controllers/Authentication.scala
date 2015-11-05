@@ -15,7 +15,7 @@ trait Authentication {
 
       user match {
         case Some(u) => f(u)
-        case None => Redirect("/")
+        case None => Redirect("/").flashing("message" -> "Nieprawid&#322;owe dane logowania.")
       }
     }
 
@@ -25,7 +25,7 @@ trait Authentication {
 
         user match {
           case Some(u) => f(request)
-          case None => Redirect("/")
+          case None => Redirect("/").flashing("message" -> "Nieprawid&#322;owe dane logowania.")
         }
       }
 }

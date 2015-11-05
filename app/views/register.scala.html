@@ -1,4 +1,4 @@
-@(userForm: Form[UserData])(implicit messages: Messages)
+@(userForm: Form[UserData], flash: Option[Flash] = None)(implicit messages: Messages)
 
 @main("Kalambury - register") {
     <div class="row">
@@ -9,17 +9,34 @@
             <h2 class="text-center h2">REJESTRACJA</h2>
         </div>
     </div>
-    <div class="row">
-        @helper.form(action = routes.UserController.registerPost) {
-            @helper.input(userForm("login")) { (id, name, value, args) =>
-                <input type="text" required="required" name="@name" id="@id" @toHtmlArgs(args) placeholder="NICK">
-            }
-            @helper.input(userForm("password")) { (id, name, value, args) =>
-                <input type="password" required="required" name="@name" id="@id" @toHtmlArgs(args) placeholder="HAS&#321;O">
-                <label>min. 6 znak&#243;w</label>
-            }
-                <input type="submit" class="small button" value="ZAREJESTRUJ"/>
+    @(flash match {
+        case Some(f) => {
+            Html("<div class=\"row\"><div data-alert class=\"alert-box alert round\"> " + flash.get("message") + " </div></div>")
         }
+        case None =>
+            Html("<div></div>")
+    })
+
+    <div class="row">
+        <form action="@routes.UserController.register" method="POST">
+            <div class="large-4 medium-4 columns">
+                <input type="text" required="required"  name="login" id="login" placeholder="NICK">
+            </div>
+            <div class="large-4 medium-4 columns">
+                <input type="password" required="required" name="password" id="password" placeholder="HAS&Lstrok;O">
+                <label>min. 1 znak</label>
+            </div>
+            <div class="large-4 medium-4 columns">
+                <input type="submit" class="small button" value="ZAREJESTRUJ"/>
+            </div>
+        </form>
+            <!--
+                @*<input type="text" required="required" name="@name" id="@id" @toHtmlArgs(args) placeholder="NICK">*@
+
+
+                @*<input type="password" required="required" name="@name" id="@id" @toHtmlArgs(args) placeholder="HAS&#321;O">*@
+                <label>min. 6 znak&#243;w</label>
+            <input type="submit" class="small button" value="ZAREJESTRUJ"/>-->
         <!--<form>
             <div class="large-3 medium-3 columns">
                 <input type="text" name="lnick" placeholder="NICK">
@@ -35,5 +52,8 @@
                 <a role="button" aria-label="submit form" class="small button" type="submit">UTW&Oacute;RZ KONTO</a>
             </div>
         </form>-->
+    </div>
+    <div class="row text-center">
+        <a href="/" class=" small secondary button">WR&#211;&#262;</a>
     </div>
 }
