@@ -1,4 +1,5 @@
 @(userForm: Form[UserData])(implicit messages: Messages)
+@import helpers.loginInput._
 
 @main("Kalambury - register") {
     <div class="row">
@@ -12,13 +13,19 @@
     <div class="row">
         @helper.form(action = routes.UserController.registerPost) {
             @helper.input(userForm("login")) { (id, name, value, args) =>
-                <input type="text" name="@name" id="@id" @toHtmlArgs(args) placeholder="Login">
+            <div class="large-4 medium-4 columns">
+                <input type="text" required="required" name="@name" id="@id" @toHtmlArgs(args) placeholder="NICK">
+            </div>
             }
             @helper.input(userForm("password")) { (id, name, value, args) =>
-                <input type="password" name="@name" id="@id" @toHtmlArgs(args) placeholder="Has&#322;o">
+            <div class="large-4 medium-4 columns">
+                <input type="password" required="required" name="@name" id="@id" @toHtmlArgs(args) placeholder="HAS&#321;O">
+                <label>min. 6 znak&#243;w</label>
+            </div>
             }
-
-            <input type="submit" class="small button" value="Register"/>
+            <div class="large-4 medium-4 columns">
+                <input type="submit" class="small button" value="ZAREJESTRUJ"/>
+            </div>
         }
         <!--<form>
             <div class="large-3 medium-3 columns">

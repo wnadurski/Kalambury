@@ -1,12 +1,16 @@
-@()
+@()(implicit session: play.api.mvc.Session)
 
 @main("Kalambury - game") {
     <div class="row">
         <div class="large-10 text-right medium-10 columns">
-            <div class="loginmsg">JESTE&Sacute; ZALOGOWANY JAKO <span id="player" class="text-left">gracz1</span></div>
+            @if(session.get("username")){
+                <div class="loginmsg">JESTE&Sacute; ZALOGOWANY JAKO <span id="player" class="text-left">@session.get("username")</span></div>
+            }
         </div>
         <div class="large-2 medium-2 columns">
-            <a class="small button">WYLOGUJ</a>
+            @helper.form(action = routes.UserController.logoutPost) {
+                <input type="submit" class="small button" value="WYLOGUJ"/>
+            }
         </div>
     </div>
     <div class="row">
@@ -41,6 +45,20 @@
                     <div id="chatbox">
                         <div class="moduletitle">Czat</div>
                         <div id="chat" class="scrollbar">
+                            <div>#pozostaly czas 60s</div>
+                            <div>nojas: kawa</div>
+                            <div>agrest: herbata</div>
+                            <div>nobi70: mleko</div>
+                            <div>kula24: oko</div>
+                            <div>nojas: kawa</div>
+                            <div>agrest: herbata</div>
+                            <div>nobi70: mleko</div>
+                            <div>kula24: oko</div>
+                            <div>nojas: kawa</div>
+                            <div>agrest: herbata</div>
+                            <div>nobi70: mleko</div>
+                            <div>kula24: oko</div>
+                            <div>#GRATULACJE, to oko</div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +71,7 @@
                                 <input name="usrmsg" id="usrmsg" type="text" placeholder="Tutaj wpisz odpowied&zacute;..." />
                             </li>
                             <li>
-                                <input name="submitmsg" type="submit" id="submitmsg" class="small button" value="WY&Sacute;LIJ" />
+                                <input name="submitmsg" type="submit" id="submitmsg" class="tiny button" value="WY&Sacute;LIJ" />
                             </li>
                         </ul>
                     </form>

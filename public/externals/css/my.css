@@ -17,13 +17,13 @@
 .h2 {
 	font-weight: 700;
 	font-size: 300%;
-	background-color: #3AC5FF;
+	color: #3AC5FF;
 	font-family: 'Montserrat', sans-serif;
 	margin-bottom: 0.5em; }
 
 #player {
 	font-weight: bold;
-	background-color: #3AC5FF;
+	color: #3AC5FF;
 	padding: 5px; }
 
 #sentence {

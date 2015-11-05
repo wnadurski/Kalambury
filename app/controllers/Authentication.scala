@@ -15,7 +15,17 @@ trait Authentication {
 
       user match {
         case Some(u) => f(u)
-        case None => Forbidden("Brak dostepu")
+        case None => Redirect("/")
       }
     }
+
+      def WithAuthenticationReq(f: Request[AnyContent] => Result) = Action { implicit request =>
+        val user = AuthUtils.parseUserFromRequest
+        println(s"USerasda: $user")
+
+        user match {
+          case Some(u) => f(request)
+          case None => Redirect("/")
+        }
+      }
 }
