@@ -1,2 +1,2 @@
-web: target/universal/stage/bin/kalambury -Dhttps.port=${PORT} -Dhttp.port=disabled -Dplay.crypto.secret="QCY?tAnfk?aZ?iwrNwnxIlR6CTf:G3gf:90Latabg@5241AB`R5W:1uDFN];Ik@n"
+web: target/universal/stage/bin/kalambury -Dhttps.port=${PORT}
 console: target/universal/stage/bin/kalambury -main scala.tools.nsc.MainGenericRunner -usejavacp
