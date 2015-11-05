@@ -46,7 +46,9 @@ class UserController extends Controller {
         BadRequest(views.html.register(formWithErrors))
       },
       userData => {
+        println(s"login: ${userData.login} pass: ${userData.password}")
         User.create(userData)
+
         Redirect("/").withSession("username" -> userData.login)
       }
     )

@@ -9,10 +9,16 @@
     </div>
     <div class="row">
         @helper.form(action = routes.UserController.registerPost) {
-            @helper.inputText(userForm("name"))
-            @helper.inputText(userForm("age"))
+            @helper.input(userForm("login")) { (id, name, value, args) =>
+                <input type="text" name="@name" id="@id" @toHtmlArgs(args) placeholder="Login">
+            }
+            @helper.input(userForm("password")) { (id, name, value, args) =>
+                <input type="password" name="@name" id="@id" @toHtmlArgs(args)>
+            }
+
+            <input type="submit" class="small button" value="Register"/>
         }
-        <form>
+        <!--<form>
             <div class="large-3 medium-3 columns">
                 <input type="text" name="lnick" placeholder="NICK">
             </div>
@@ -26,6 +32,6 @@
             <div class="large-3 medium-3 columns">
                 <a role="button" aria-label="submit form" class="small button" type="submit">UTWÓRZ KONTO</a>
             </div>
-        </form>
+        </form>-->
     </div>
 }

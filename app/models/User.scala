@@ -52,12 +52,13 @@ object User {
 
   def create(data:UserData) = {
     DB.withConnection { implicit connection =>
-      SQL("insert into Users(login, password, ranking, totalPoints, roleId").on(
-        'login -> data.login,
-        'password -> md5(data.password.getBytes),
-        'ranking -> 0,
-        'totalPoints -> 0,
-        'roleId -> Role.findByName("simple").id
+      println(s"logsin: ${data.login} pass: ${data.password}")
+      SQL("insert into Users(login, password, ranking, totalPoints, roleId) values ({login}, {password}, {ranking}, {totalPoints}, {roleId}").on(
+        "login" -> data.login,
+        "password" -> md5(data.password.getBytes),
+        "ranking" -> 0,
+        "totalPoints" -> 0,
+        "roleId"-> Role.findByName("simple").id
       ).execute()
     }
   }
