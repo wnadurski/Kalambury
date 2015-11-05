@@ -9,7 +9,7 @@ import play.api.i18n.Messages.Implicits._
 /**
  * Created by Hyster on 2015-11-02.
  */
-class UserController extends Controller {
+class UserController extends Controller with Authentication {
 
   def validate(userData : UserData) = {
     val user = User.findByName(userData.login)
@@ -53,4 +53,16 @@ class UserController extends Controller {
       }
     )
   }
+
+  def loggingPost() = WithAuthentication {
+    user =>
+      Redirect("/").withSession("username" -> user.login)
+  }
+
+  def logoutPost() = WithAuthentication {
+    user =>
+      println(s"USer ${user.login} tried to logout")
+      Redirect("/").withNewSession
+  }
+
 }

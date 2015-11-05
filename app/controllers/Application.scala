@@ -2,11 +2,12 @@ package controllers
 import play.api._
 import play.api.mvc._
 import models._
+import play.api.mvc.Session
 
 class Application extends Controller {
 
-  def index = Action {
+  def index = Action { implicit request =>
 
-    Ok(views.html.index("Your new application is ready.", User.findAll))
+    Ok(views.html.index())
   }
 }
