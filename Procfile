@@ -1,2 +1,1 @@
-web: target/universal/stage/bin/kalambury -Dhttp.port=${PORT}
-console: target/universal/stage/bin/kalambury -main scala.tools.nsc.MainGenericRunner -usejavacp
+web: target/universal/stage/bin/kalambury -Dhttp.port=${PORT} -Dplay.crypto.secret="QCY?tAnfk?aZ?iwrNwnxIlR6CTf:G3gf:90Latabg@5241AB`R5W:1uDFN];Ik@n"
